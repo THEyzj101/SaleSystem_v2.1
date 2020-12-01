@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
+import java.awt.Dialog.ModalExclusionType;
+
 /**
  * 本页面为”开销售单“页面
  */
@@ -29,7 +31,6 @@ public class panelForAddingOrder extends JPanel {
     public panelForAddingOrder(){
 
         this.setLayout(new BorderLayout());
-
         /**初始化各类组件**/
         /**顶部组件**/
         Box verticalBox_Top = Box.createVerticalBox();
@@ -57,12 +58,18 @@ public class panelForAddingOrder extends JPanel {
         /**底部组件**/
         button_addOrder_add = new JButton("+ 新增订单 ");
         button_addOrder_add.setHorizontalAlignment(SwingConstants.LEADING);
+
         button_addOrder_add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 /**---todo----**/
-            }
-        });
+                //弹窗
+                windowsToCreateOrder winToCreateOrder = new windowsToCreateOrder();
+                winToCreateOrder.setVisible(true);
+                winToCreateOrder.setBounds(470,170,300,400);
+                winToCreateOrder.setResizable(false);
+          }
+    });
         label_addOrder_totalPriceTitle = new JLabel("合计:  ");
         textField_addOrder_totalPriceDisplay = new JTextField();
         textField_addOrder_totalPriceDisplay.setEditable(false);
@@ -119,4 +126,7 @@ public class panelForAddingOrder extends JPanel {
         MyJPanel myJPanel_addingOrder = new MyJPanel(verticalBox_Top,name_order,99,verticalBox_Bottom);
         this.add(myJPanel_addingOrder);
     }
+
+
+
 }

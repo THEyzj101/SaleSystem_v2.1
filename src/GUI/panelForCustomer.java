@@ -14,7 +14,7 @@ public class panelForCustomer extends JPanel {
     private JButton button_customer_search;
     private JButton button_customer_change;
     private JButton button_customer_delete;
-
+    private windowsToCreateCustomer winToCreateCustomer;
 
     /**
      * 针对店员权限的销售面板
@@ -34,6 +34,11 @@ public class panelForCustomer extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //todo
                 //弹窗——新建客户信息
+                winToCreateCustomer = new windowsToCreateCustomer();
+                winToCreateCustomer.setVisible(true);
+                winToCreateCustomer.setBounds(470,170,400,300);
+                winToCreateCustomer.setResizable(false);
+
             }
         });
     	horizontalBox_add.add(Button_customer_add);
